@@ -15,7 +15,7 @@ namespace Assignment03
 
             //ys.GreaterThan42DivisibleBy7().Print();
 
-            ys.LeapYear().Print();
+            //ys.LeapYear().Print();
             
         }
     }

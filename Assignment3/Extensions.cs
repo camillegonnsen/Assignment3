@@ -28,5 +28,13 @@ namespace Assignment03
 
             return items.Where(item => DateTime.IsLeapYear(item));
         }
+
+        public static bool IsSecure(this Uri uri){
+            return uri.Scheme == Uri.UriSchemeHttps;  
+        }
+
+        public static int WordCount(this string str){
+            return str.Split(new char[]{' ', '.','?' }, StringSplitOptions.RemoveEmptyEntries).Length;
+        }
     }
 }
