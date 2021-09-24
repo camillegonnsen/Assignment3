@@ -7,16 +7,26 @@ namespace Assignment03
     {
         static void Main(string[] args)
         {
-            HashSet<HashSet<int>> xs = new HashSet<HashSet<int>> { new HashSet<int> { 1, 2, 3, 4, 5, 6 }, new HashSet<int> { 1, 2, 3, 4, 5, 6 } };
-            
-            //input.Flatten().Print();
-
-            int[] ys = new int[] {3, 10, 49, 54, 56};
-
-            //ys.GreaterThan42DivisibleBy7().Print();
-
-            //ys.LeapYear().Print();
-            
+            ReverseWord("Hello World");
+            printProduct(3, 2);
         }
+
+        static void ReverseWord(string s){
+            Action<string> word = (string str) => {
+                char[] charArray = str.ToCharArray();
+                Array.Reverse(charArray);
+                Console.WriteLine(new string(charArray));
+            };
+            word(s);
+        }
+
+        static void printProduct(double x, double y)
+        {
+            Func<double, double, double> product = (double number1, double number2) => number1 * number2; 
+            var result = product(x, y);
+            Console.WriteLine(result);
+        }
+
+        
     }
 }
