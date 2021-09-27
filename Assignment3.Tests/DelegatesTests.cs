@@ -23,7 +23,7 @@ namespace Assignment03.Tests
 
             var expected = 24;
             
-            Assert.Equal(expected, Program.printProduct(input1, input2));
+            Assert.Equal(expected, Program.Product(input1, input2));
         }
     }
 
