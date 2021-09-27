@@ -32,5 +32,55 @@ namespace Assignment03
 
             return wizards.OrderByDescending(w => w.Creator).ThenBy(w => w.Name);
         }
+
+        public static IEnumerable<string> AllRowling()
+        {
+            var wizards = Wizard.Wizards.Value;
+
+            var w1 =    from w in wizards 
+                        where w.Creator == "J.K. Rowling"
+                        select w.Name;
+            
+            return w1;   
+        }
+
+        public static Wizard FirstSithLord()
+        {
+            var wizards = Wizard.Wizards.Value;
+
+            var w2 = from w in wizards
+                    where w.Name.Contains("Darth")
+                    orderby w.Year
+                    select w;
+
+            return w2.First();
+        }
+
+        public static IEnumerable<(string, int?)> UniqueHarryPotter()
+        {
+            var wizards = Wizard.Wizards.Value;
+
+            var w3 = from w in wizards
+                    where w.Medium == "Harry Potter"
+                    select (w.Name, w.Year);
+            
+            return w3;
+                    
+        }
+
+        /*public static IEnumerable<Wizard> ReverseFiesta()
+        {
+            var wizards = Wizard.Wizards.Value;
+
+            //return wizards.OrderByDescending(w => w.Creator).ThenBy(w => w.Name);
+
+            var w4 =    from w in wizards
+                        orderby w.Creator, w.Name
+                        group (w.Creator, w.Name) by w.Creator into g
+                        select g;
+            
+            return w4;
+
+        }*/
     }
 }
