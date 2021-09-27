@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Assignment03
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -11,20 +11,20 @@ namespace Assignment03
             printProduct(3, 2);
         }
 
-        static void ReverseWord(string s){
-            Action<string> word = (string str) => {
+        public static string ReverseWord(string s){
+            Func<string, string> word = (string str) => {
                 char[] charArray = str.ToCharArray();
                 Array.Reverse(charArray);
-                Console.WriteLine(new string(charArray));
+                return new string(charArray);
             };
-            word(s);
+            return word(s);
         }
 
-        static void printProduct(double x, double y)
+        public static double printProduct(double x, double y)
         {
             Func<double, double, double> product = (double number1, double number2) => number1 * number2; 
             var result = product(x, y);
-            Console.WriteLine(result);
+            return result;
         }
 
         
