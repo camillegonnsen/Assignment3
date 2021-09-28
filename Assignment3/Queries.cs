@@ -68,19 +68,20 @@ namespace Assignment03
                     
         }
 
-        /*public static IEnumerable<Wizard> ReverseFiesta()
+        public static IEnumerable<string> ReverseFiesta()
         {
             var wizards = Wizard.Wizards.Value;
 
             //return wizards.OrderByDescending(w => w.Creator).ThenBy(w => w.Name);
 
             var w4 =    from w in wizards
-                        orderby w.Creator, w.Name
-                        group (w.Creator, w.Name) by w.Creator into g
-                        select g;
+                        orderby w.Name descending
+                        orderby w.Creator descending
+                        group w by new {w.Creator, w.Name} into g
+                        select g.Key.Name;
             
             return w4;
 
-        }*/
+        }
     }
 }
