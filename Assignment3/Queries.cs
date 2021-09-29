@@ -26,11 +26,11 @@ namespace Assignment03
             return wizards.Where(w => w.Medium == "Harry Potter").Select(w => (w.Name, w.Year));
         }
 
-        public static IEnumerable<Wizard> ExtReverseFiesta()
+        public static IEnumerable<string> ExtReverseFiesta()
         {
             var wizards = Wizard.Wizards.Value;
 
-            return wizards.OrderByDescending(w => w.Creator).ThenBy(w => w.Name);
+            return wizards.OrderByDescending(w => w.Creator).ThenBy(w => w.Name).Select(w => w.Name);
         }
 
         public static IEnumerable<string> AllRowling()
