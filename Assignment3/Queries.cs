@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace Assignment03
 {
@@ -12,18 +13,18 @@ namespace Assignment03
             return wizards.Where(w => w.Creator == "J.K. Rowling").Select(w => w.Name);
         }
 
-        public static Wizard ExtFirstSithLord()
+        public static int? ExtFirstSithLord()
         {
             var wizards = Wizard.Wizards.Value;
 
-            return wizards.Where(w => w.Name.Contains("Darth")).OrderBy(w => w.Year).First();
+            return wizards.Where(w => w.Name.Contains("Darth")).Select(w => w.Year).Min();
         }
 
         public static IEnumerable<(string, int?)> ExtUniqueHarryPotter()
         {
             var wizards = Wizard.Wizards.Value;
 
-            return wizards.Where(w => w.Medium == "Harry Potter").Select(w => (w.Name, w.Year));
+            return wizards.Where(w => w.Medium.Equals("Harry Potter")).Select(w => (w.Name, w.Year)).Distinct();
         }
 
         public static IEnumerable<string> ExtReverseFiesta()
@@ -44,16 +45,15 @@ namespace Assignment03
             return w1;   
         }
 
-        public static Wizard FirstSithLord()
+        public static int? FirstSithLord()
         {
             var wizards = Wizard.Wizards.Value;
 
-            var w2 = from w in wizards
+            var w2 = (from w in wizards
                     where w.Name.Contains("Darth")
-                    orderby w.Year
-                    select w;
+                    select w.Year).Min();
 
-            return w2.First();
+            return w2;
         }
 
         public static IEnumerable<(string, int?)> UniqueHarryPotter()

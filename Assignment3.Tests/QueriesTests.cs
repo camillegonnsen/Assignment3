@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Xunit;
+using System;
 
 namespace Assignment03.Tests
 {
@@ -8,19 +9,19 @@ namespace Assignment03.Tests
         [Fact]
         public void ExtAllRowling_GivenWizards_Returns_DumbelPotterVolde()
         {
-            IEnumerable<string> expected = new List<string> { "Albus Dumbeldore", "Harry Potter", "Voldemort"};
+            List<String> expected = new List<string> { "Albus Dumbeldore", "Harry Potter", "Voldemort"};
 
-            IEnumerable<string> output = Queries.ExtAllRowling();
+            var output = Queries.ExtAllRowling();
 
             Assert.Equal(expected, output);
         }
 
         [Fact]
-        public void ExtFirstSithLord_GivenDarthVader_ReturnsDarthVader()
+        public void ExtFirstSithLord_GivenDarthVader_Returns1977()
         {
-            Wizard expected = new Wizard { Name="Darth Vader", Medium="Star Wars", Year=1977, Creator="George Lucas" };
+            int? expected = 1977;
 
-            Wizard output = Queries.ExtFirstSithLord();
+            var output = Queries.ExtFirstSithLord();
 
             Assert.Equal(expected, output);
         }
@@ -28,14 +29,13 @@ namespace Assignment03.Tests
         [Fact]
         public void ExtUniqueHarryPotter_GivenDumbelPotterVoldemort_ReturnsDumbelPotterVolde()
         {
-            IEnumerable<(string, int?)> expected = new List<(string, int?)> 
+            IEnumerable<(string, int?)> expected = new List<(string, int?)>() 
             {
                 ("Harry Potter", 1997),
                 ("Albus Dumbeldore", 1997),
                 ("Voldemort", 1997)   
             };
-
-            IEnumerable<(string, int?)> output = Queries.ExtUniqueHarryPotter();
+            var output = Queries.ExtUniqueHarryPotter();
 
             Assert.Equal(expected, output);
         }
@@ -65,11 +65,12 @@ namespace Assignment03.Tests
         }
 
         [Fact]
-        public void FirstSithLord_GivenDarthVader_ReturnsDarthVader()
+        public void FirstSithLord_GivenDarthVader_Returns1977()
         {
-            Wizard expected = new Wizard { Name="Darth Vader", Medium="Star Wars", Year=1977, Creator="George Lucas" };
+           // Wizard expected = new Wizard { Name="Darth Vader", Medium="Star Wars", Year=1977, Creator="George Lucas" };
 
-            Wizard output = Queries.FirstSithLord();
+            int? expected = 1977;
+            var output = Queries.FirstSithLord();
 
             Assert.Equal(expected, output);
         }
