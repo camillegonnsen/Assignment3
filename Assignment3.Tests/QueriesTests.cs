@@ -9,7 +9,7 @@ namespace Assignment03.Tests
         [Fact]
         public void ExtAllRowling_GivenWizards_Returns_DumbelPotterVolde()
         {
-            List<String> expected = new List<string> { "Albus Dumbeldore", "Harry Potter", "Voldemort"};
+            List<string> expected = new List<string> { "Albus Dumbledore", "Harry Potter", "Voldemort"};
 
             var output = Queries.ExtAllRowling();
 
@@ -31,8 +31,8 @@ namespace Assignment03.Tests
         {
             IEnumerable<(string, int?)> expected = new List<(string, int?)>() 
             {
-                ("Harry Potter", 1997),
-                ("Albus Dumbeldore", 1997),
+               
+                ("Albus Dumbledore", 1997), ("Harry Potter", 1997),
                 ("Voldemort", 1997)   
             };
             var output = Queries.ExtUniqueHarryPotter();
@@ -44,9 +44,9 @@ namespace Assignment03.Tests
         public void ExtReverseFiesta()
         {
             IEnumerable<string> expected = new List<string>
-            {
-                "Dr Stephen Strange", "Glinda the Good Witch", "Sauron", "Gandalf", "Voldemort", "Harry Potter", 
-                "Albus Dumberldore", "Yoda", "Darth Vader", "Merlin" 
+              {
+                "Dr. Stephen Strange", "Glinda the Good Witch", "Gandalf", "Sauron",  "Albus Dumbledore", "Harry Potter","Voldemort", "Darth Vader",
+                "Yoda", "Merlin" 
             }; 
 
             IEnumerable<string>output = Queries.ExtReverseFiesta();
@@ -57,7 +57,7 @@ namespace Assignment03.Tests
         [Fact]
         public void AllRowling_GivenWizards_Returns_DumbelPotterVolde()
         {
-            IEnumerable<string> expected = new List<string> { "Albus Dumbeldore", "Harry Potter", "Voldemort"};
+            IEnumerable<string> expected = new List<string> { "Albus Dumbledore", "Harry Potter", "Voldemort"};
 
             IEnumerable<string> output = Queries.AllRowling();
 
@@ -80,8 +80,8 @@ namespace Assignment03.Tests
         {
             IEnumerable<(string, int?)> expected = new List<(string, int?)> 
             {
-                ("Harry Potter", 1997),
-                ("Albus Dumbeldore", 1997),
+                
+                ("Albus Dumbledore", 1997),("Harry Potter", 1997),
                 ("Voldemort", 1997)   
             };
 
@@ -95,8 +95,8 @@ namespace Assignment03.Tests
         {
             IEnumerable<string> expected = new List<string>
             {
-                "Dr Stephen Strange", "Glinda the Good Witch", "Sauron", "Gandalf", "Voldemort", "Harry Potter", 
-                "Albus Dumberldore", "Yoda", "Darth Vader", "Merlin" 
+                "Dr. Stephen Strange", "Glinda the Good Witch", "Sauron", "Gandalf", "Voldemort", "Harry Potter", 
+                "Albus Dumbledore", "Yoda", "Darth Vader", "Merlin" 
             }; 
 
             IEnumerable<string>output = Queries.ReverseFiesta();

@@ -10,7 +10,7 @@ namespace Assignment03
         {
             var wizards = Wizard.Wizards.Value;
 
-            return wizards.Where(w => w.Creator == "J.K. Rowling").Select(w => w.Name);
+            return wizards.Where(w => w.Creator == "J.K. Rowling").Select(w => w.Name).ToList();
         }
 
         public static int? ExtFirstSithLord()
@@ -24,23 +24,23 @@ namespace Assignment03
         {
             var wizards = Wizard.Wizards.Value;
 
-            return wizards.Where(w => w.Medium.Equals("Harry Potter")).Select(w => (w.Name, w.Year)).Distinct();
+            return wizards.Where(w => w.Medium.Equals("Harry Potter")).Select(w => (w.Name, w.Year)).Distinct().ToList();
         }
 
         public static IEnumerable<string> ExtReverseFiesta()
         {
             var wizards = Wizard.Wizards.Value;
 
-            return wizards.OrderByDescending(w => w.Creator).ThenBy(w => w.Name).Select(w => w.Name);
+            return (wizards.OrderByDescending(w => w.Creator).ThenBy(w => w.Name).Select(w => w.Name)).ToList();
         }
 
         public static IEnumerable<string> AllRowling()
         {
             var wizards = Wizard.Wizards.Value;
 
-            var w1 =    from w in wizards 
+            var w1 =    (from w in wizards 
                         where w.Creator == "J.K. Rowling"
-                        select w.Name;
+                        select w.Name).ToList();
             
             return w1;   
         }
@@ -60,9 +60,9 @@ namespace Assignment03
         {
             var wizards = Wizard.Wizards.Value;
 
-            var w3 = from w in wizards
+            var w3 = (from w in wizards
                     where w.Medium == "Harry Potter"
-                    select (w.Name, w.Year);
+                    select (w.Name, w.Year)).ToList();
             
             return w3;
                     
@@ -74,11 +74,11 @@ namespace Assignment03
 
             //return wizards.OrderByDescending(w => w.Creator).ThenBy(w => w.Name);
 
-            var w4 =    from w in wizards
+            var w4 =    (from w in wizards
                         orderby w.Name descending
                         orderby w.Creator descending
                         group w by new {w.Creator, w.Name} into g
-                        select g.Key.Name;
+                        select g.Key.Name).ToList();
             
             return w4;
 
